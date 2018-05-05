@@ -4,20 +4,46 @@
 <head>
     <title>Welcome</title>
     <style>
-        li {
-            display: inline-block;
-            text-decoration: none;
-            margin: 10px;
+        * {
+            margin: 20px;
         }
+        div {
+            width: 80%;
+            height: 400px;
+            padding: 10px;
+        }
+
+        th, td {
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid gray;
+        }
+
     </style>
 </head>
 <body>
+<nav>
 <%@include file="header.jspx"%>
-<h1>Welcome on the CarWorkshop Site</h1>
-
-<p>Add customer: <a href="/addcustomer">Link</a> </p>
-<p>Add employee: <a href="/addemployee">Link</a> </p>
-
+</nav>
+<hr>
+<div>
+    <h1>WELCOME ON THE CAR-WORKSHOP SITE</h1>
+    <p>Undergoing repairs:</p>
+    <table>
+        <tr><th>Registered </th><th>Vehicle</th><th>Employee </th><th>Details </th></tr>
+        <c:forEach items="${orders}" var="order">
+            <tr>
+                <td>${order.registered}</td>
+                <td>${order.vahicle_id}</td>
+                <td>${order.employee_id}</td>
+                <td><a href="/orderdetails?id=${order.id}">Click</a></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+<hr>
+<footer>
 <%@include file="footer.jspx"%>
+</footer>
 </body>
 </html>
