@@ -20,7 +20,7 @@ public class addcustomer extends HttpServlet {
         LocalDate birthdate = LocalDate.parse(request.getParameter("birthdate"));
 
         CustomerDao.create(name,surname, birthdate);
-        response.sendRedirect("/homepage");
+        response.sendRedirect("/allcustomers");
 
     }
 
