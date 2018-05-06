@@ -24,9 +24,8 @@ public class addorder extends HttpServlet {
         int vehicle_id = Integer.parseInt(request.getParameter("vehicle_id"));
         double repair_price = Double.parseDouble(request.getParameter("repair_price"));
         double employee_work_price = EmployeeDao.read(employee_id).getHour_salary();
-        int repair_hours = Integer.parseInt(request.getParameter("repair_hours"));
 
-        OrderDao.create(registered, planned_repair_date, employee_id, problem_description, status, vehicle_id, repair_price, employee_work_price, repair_hours);
+        OrderDao.create(registered, planned_repair_date, employee_id, problem_description, status, vehicle_id, repair_price, employee_work_price);
         response.sendRedirect("/allorders");
 
     }
