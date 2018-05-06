@@ -7,26 +7,25 @@ public class Vehicle {
     private int id;
     private String model;
     private String brand;
-    private int user_id;
+    private int customer_id;
     private int year;
     private String registration;
     private LocalDate next_check;
 
-    public Vehicle(int id, String model, String brand, int user_id, int year, String registration, LocalDate next_check) {
+    public Vehicle(int id, String model, String brand, int customer_id, int year, String registration, LocalDate next_check) {
         this.id = id;
         this.model = model;
         this.brand = brand;
-        this.user_id = user_id;
+        this.customer_id = customer_id;
         this.year = year;
         this.registration = registration;
         this.next_check = next_check;
     }
 
-    public Vehicle(String model, String brand, int user_id, int year, String registration, LocalDate next_check) {
-        this.id = id;
+    public Vehicle(String model, String brand, int customer_id, int year, String registration, LocalDate next_check) {
         this.model = model;
         this.brand = brand;
-        this.user_id = user_id;
+        this.customer_id = customer_id;
         this.year = year;
         this.registration = registration;
         this.next_check = next_check;
@@ -58,12 +57,12 @@ public class Vehicle {
         this.brand = brand;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getCustomer_id() {
+        return customer_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 
     public int getYear() {

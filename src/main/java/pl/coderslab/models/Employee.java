@@ -11,9 +11,8 @@ public class Employee {
     private String note;
     private double hour_salary;
 
-    public Employee(int id, int order_id, String name, String surname, String address, String number, String note, double hour_salary) {
+    public Employee(int id, String name, String surname, String address, String number, String note, double hour_salary) {
         this.id = id;
-        this.order_id = order_id;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -22,9 +21,7 @@ public class Employee {
         this.hour_salary = hour_salary;
     }
 
-    public Employee(int order_id, String name, String surname, String address, String number, String note, double hour_salary) {
-        this.id = id;
-        this.order_id = order_id;
+    public Employee(String name, String surname, String address, String number, String note, double hour_salary) {
         this.name = name;
         this.surname = surname;
         this.address = address;

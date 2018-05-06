@@ -1,5 +1,7 @@
 package pl.coderslab.models;
 
+import pl.coderslab.dao.EmployeeDao;
+
 import java.time.LocalDate;
 
 public class Order {
@@ -31,12 +33,11 @@ public class Order {
         this.vehicle_id = vehicle_id;
         this.repair_price = repair_price;
         this.parts_price = parts_price;
-        this.employee_work_price = employee_work_price;
+        this.employee_work_price = EmployeeDao.read(employee_id).getHour_salary();
         this.repair_hours = repair_hours;
     }
 
-    public Order(LocalDate registered, LocalDate planned_repair_date, LocalDate actual_repair_date, int employee_id, String problem_description, String repair_description, int status, int vehicle_id, double repair_price, double parts_price, double employee_work_price, int repair_hours) {
-        this.id = id;
+    public Order(LocalDate registered, LocalDate planned_repair_date, int employee_id, String problem_description, int status, int vehicle_id, double repair_price, double employee_work_price, int repair_hours) {
         this.registered = registered;
         this.planned_repair_date = planned_repair_date;
         this.actual_repair_date = actual_repair_date;
@@ -47,7 +48,7 @@ public class Order {
         this.vehicle_id = vehicle_id;
         this.repair_price = repair_price;
         this.parts_price = parts_price;
-        this.employee_work_price = employee_work_price;
+        this.employee_work_price = EmployeeDao.read(employee_id).getHour_salary();
         this.repair_hours = repair_hours;
     }
 

@@ -17,7 +17,6 @@ public class Customer {
     }
 
     public Customer(String name, String surname, LocalDate birth_date) {
-        this.id = id;
         this.name = name;
         this.surname = surname;
         this.birth_date = birth_date;
