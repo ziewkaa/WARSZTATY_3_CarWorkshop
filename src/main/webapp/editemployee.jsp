@@ -22,9 +22,9 @@
 <body>
 <%@ include file="/header.jspx" %>
 <hr>
-<p>Edit Employee ${id}:</p>
+<p>Edit Employee ${param.id}:</p>
 <hr>
-<form action ="/addemployee" method="POST">
+<form action ="/editemployee" method="POST">
     <label> Name :
         <input type ="text" name ="name"/>
     </label><br>

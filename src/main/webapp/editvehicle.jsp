@@ -21,8 +21,8 @@
 <body>
 <%@ include file="/header.jspx" %>
 <hr>
-<p>Edit Vehicle ${id}:</p>
-<form action ="/addvehicle" method="POST">
+<p>Edit Vehicle ${param.id}:</p>
+<form action ="/editvehicle" method="POST">
     <label> Model :
         <input type ="text" name ="model"/>
     </label><br>

@@ -21,29 +21,27 @@
 
     </style>
 </head>
-<body>
-<nav>
-<%@include file="header.jspx"%>
-</nav>
-<hr>
-<div>
-    <h1>WELCOME ON THE CAR-WORKSHOP SITE</h1>
-    <p>Undergoing repairs:</p>
-    <table>
-        <tr><th>Registered </th><th>Vehicle</th><th>Employee </th><th>Details </th></tr>
-        <c:forEach items="${orders}" var="order">
-            <tr>
-                <td>${order.registered}</td>
-                <td>${order.vahicle_id}</td>
-                <td>${order.employee_id}</td>
-                <td><a href="/orderdetails?id=${order.id}">Click</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
-<hr>
-<footer>
-<%@include file="footer.jspx"%>
-</footer>
-</body>
+    <body>
+        <nav>
+        <%@include file="header.jspx"%>
+        </nav>
+        <hr>
+            <h1>WELCOME ON EVE'S CAR-WORKSHOP SITE</h1>
+            <p>UNDERGOING REPAIRS :</p>
+            <table>
+                <tr><th>Registered </th><th>Vehicle</th><th>Employee </th><th>Details </th></tr>
+                <c:forEach items="${orders}" var="order">
+                    <tr>
+                        <td>${order.registered}</td>
+                        <td>${order.vahicle_id}</td>
+                        <td>${order.employee_id}</td>
+                        <td><a href="/orderdetails?id=${order.id}">Click</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        <hr>
+        <footer>
+        <%@include file="footer.jspx"%>
+        </footer>
+    </body>
 </html>

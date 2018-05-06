@@ -20,7 +20,7 @@
     </style>
 </head>
     <body>
-    <%@ include file="../header.jspx" %>
+    <%@ include file="/header.jspx" %>
     <hr>
     <form action ="/addorder" method="POST">
         <label> Planned start date :
@@ -44,7 +44,7 @@
         <input type ="submit" value="Save"/>
     </form>
     <hr>
-    <%@ include file="../footer.jspx" %>
+    <%@ include file="/footer.jspx" %>
 
     </body>
 </html>

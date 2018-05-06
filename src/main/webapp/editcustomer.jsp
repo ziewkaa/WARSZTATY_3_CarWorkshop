@@ -23,7 +23,7 @@
 
 <%@ include file="header.jspx" %>
 <hr>
-<p>Edit Customer ${id}:</p>
+<p>Edit Customer ${param.id}:</p>
 <hr>
 <form action ="/editcustomer" method="POST">
     <label> Name :
