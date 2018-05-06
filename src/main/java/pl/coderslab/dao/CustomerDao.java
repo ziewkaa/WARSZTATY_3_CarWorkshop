@@ -14,7 +14,7 @@ public class CustomerDao {
 
     private static final String CREATE_CUSTOMER_QUERY = "INSERT INTO Customers(name,surname,birthdate) VALUES (?,?,?)";
     private static final String READ_CUSTOMER_QUERY = "SELECT * FROM Customers where id = ?";
-    private static final String UPDATE_CUSTOMER_QUERY = "UPDATE Customers SET name = ? , surname = ?, birthdate =  WHERE id = ?";
+    private static final String UPDATE_CUSTOMER_QUERY = "UPDATE Customers SET name = ? , surname = ?, birthdate = ?  WHERE id = ?";
     private static final String DELETE_CUSTOMER_QUERY = "DELETE FROM Customers WHERE id = ?";
     private static final String FIND_ALL_CUSTOMERS_QUERY = "SELECT * FROM Customers";
 

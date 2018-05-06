@@ -46,7 +46,7 @@ public class EmployeeDao {
             while (resultSet.next()) {
                 employee.setId(resultSet.getInt("id"));
                 employee.setName(resultSet.getString("name"));
-                employee.setSurname(resultSet.getString("email"));
+                employee.setSurname(resultSet.getString("surname"));
                 employee.setAddress(resultSet.getString("address"));
                 employee.setNumber(resultSet.getString("number"));
                 employee.setNote(resultSet.getString("note"));
