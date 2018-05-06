@@ -35,7 +35,7 @@
             <td>${employee.surname}</td>
             <td><a href="/employeedetails?id=${employee.id}">Click</a></td>
             <td><a href="/employeeorders?id=${employee.id}">Click</a></td>
-            <td><a href="/editcustomer?id=${customer.id}">Edit</a> / <a href="/deletecustomer?id=${customer.id}">Delete</a></td>
+            <td><a href="/editemployee?id=${employee.id}">Edit</a> / <a href="/deleteemployee?id=${employee.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Employees</title>
+    <title>Title</title>
     <style>
         * {
             margin: 20px;
@@ -21,6 +21,8 @@
 </head>
 <body>
 <%@ include file="/header.jspx" %>
+<hr>
+<p>Edit Employee ${id}:</p>
 <hr>
 <form action ="/addemployee" method="POST">
     <label> Name :

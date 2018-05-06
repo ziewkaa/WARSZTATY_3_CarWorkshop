@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Employees</title>
+    <title>Title</title>
     <style>
         * {
             margin: 20px;
@@ -22,24 +21,22 @@
 <body>
 <%@ include file="/header.jspx" %>
 <hr>
-<form action ="/addemployee" method="POST">
-    <label> Name :
-        <input type ="text" name ="name"/>
+<p>Edit Vehicle ${id}:</p>
+<form action ="/addvehicle" method="POST">
+    <label> Model :
+        <input type ="text" name ="model"/>
     </label><br>
-    <label> Surname :
-        <input type ="text" name ="surname"/>
+    <label> Brand :
+        <input type ="text" name ="brand"/>
     </label><br>
-    <label>  Address :
-        <input type ="text" name ="address"/>
+    <label>  Year :
+        <input type ="number" name ="year"/>
     </label><br>
-    <label>  Phone number :
-        <input type ="number" name ="number"/>
+    <label>  Registration :
+        <input type ="text" name ="registration"/>
     </label><br>
-    <label>  Note :
-        <input type ="text" name ="note"/>
-    </label><br>
-    <label>  Salary / H :
-        <input type ="number" step="any" name ="salary"/>
+    <label>  Next check :
+        <input type ="datet" name ="next_check"/>
     </label><br>
     <input type ="submit" value="Save"/>
 </form>

@@ -36,7 +36,7 @@
             <td>${order.vehicle_id}</td>
             <td>${order.status}</td>
             <td><a href="/orderdetails?id=${employee.id}">Click</a></td>
-            <td><a href="/editorder?id=${customer.id}">Update</a> / <a href="/deleteorder?id=${order.id}">Delete</a></td>
+            <td><a href="/updateorder?id=${customer.id}">Update</a> / <a href="/deleteorder?id=${order.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
