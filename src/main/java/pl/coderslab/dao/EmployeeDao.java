@@ -12,15 +12,15 @@ import java.util.List;
 
 public class EmployeeDao {
 
-    private static final String CREATE_EMPLOYEE_QUERY = "INSERT INTO Employees(name,surname,birthdate) VALUES (?,?,?,?,?,?,?)";
-    private static final String READ_EMPLOYEE_QUERY = "SELECT * FROM Employees where id = ?";
-    private static final String UPDATE_EMPLOYEE_QUERY = "UPDATE Employees SET name = ? , surname = ?, address = ?, number=?, note=?, hour_salary=?, order_id=?  WHERE id = ?";
-    private static final String DELETE_EMPLOYEE_QUERY = "DELETE FROM Employees WHERE id = ?";
-    private static final String FIND_ALL_EMPLOYEES_QUERY = "SELECT * FROM Employees";
+    private static final String CREATE_EMPLOYEE_QUERY = "INSERT INTO Employees(name,surname,address,number,note, hour_salary) VALUES (?,?,?,?,?,?);";
+    private static final String READ_EMPLOYEE_QUERY = "SELECT * FROM Employees where id = ?;";
+    private static final String UPDATE_EMPLOYEE_QUERY = "UPDATE Employees SET name = ? , surname = ?, address = ?, number=?, note=?, hour_salary=? WHERE id = ?;";
+    private static final String DELETE_EMPLOYEE_QUERY = "DELETE FROM Employees WHERE id = ?;";
+    private static final String FIND_ALL_EMPLOYEES_QUERY = "SELECT * FROM Employees;";
 
 
 
-    static public void create(String name, String surname, String address, String number, String note, double hour_salary, int order_id) {
+    static public void create(String name, String surname, String address, String number, String note, double hour_salary) {
 
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(CREATE_EMPLOYEE_QUERY);
@@ -30,7 +30,6 @@ public class EmployeeDao {
             statement.setString(4,number);
             statement.setString( 5, note);
             statement.setDouble(6, hour_salary);
-            statement.setInt(7, order_id);
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +51,6 @@ public class EmployeeDao {
                 employee.setNumber(resultSet.getString("number"));
                 employee.setNote(resultSet.getString("note"));
                 employee.setHour_salary(Double.parseDouble(resultSet.getString("hour_salary")));
-                employee.setOrder_id(Integer.parseInt(resultSet.getString("order_id")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,14 +62,13 @@ public class EmployeeDao {
 
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEE_QUERY);
-            statement.setInt(8, employee.getId());
+            statement.setInt(7, employee.getId());
             statement.setString(1, employee.getName());
             statement.setString(2, employee.getSurname());
             statement.setString(3,employee.getAddress());
             statement.setString(4,employee.getNumber());
             statement.setString( 5, employee.getNote());
             statement.setDouble(6, employee.getHour_salary());
-            statement.setInt(7, employee.getOrder_id());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,14 +88,14 @@ public class EmployeeDao {
 
     }
 
-    static public List<Employee> findAllCustomers() {
+    static public Employee[] findAllEmployees() {
 
         List<Employee> allEmployees = new ArrayList<>();
-        Employee employee = new Employee();
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(FIND_ALL_EMPLOYEES_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                Employee employee = new Employee();
                 employee.setId(resultSet.getInt("id"));
                 employee.setName(resultSet.getString("name"));
                 employee.setSurname(resultSet.getString("surname"));
@@ -106,13 +103,14 @@ public class EmployeeDao {
                 employee.setNumber(resultSet.getString("number"));
                 employee.setNote(resultSet.getString("note"));
                 employee.setHour_salary(Double.parseDouble(resultSet.getString("hour_salary")));
-                employee.setOrder_id(Integer.parseInt(resultSet.getString("order_id")));
                 allEmployees.add(employee);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return allEmployees;
+        Employee[] employees = new Employee[allEmployees.size()];
+        employees = allEmployees.toArray(employees);
+        return employees;
     }
 
 }

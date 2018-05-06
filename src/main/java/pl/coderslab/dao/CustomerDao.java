@@ -43,7 +43,7 @@ public class CustomerDao {
             while (resultSet.next()) {
                 customer.setId(resultSet.getInt("id"));
                 customer.setName(resultSet.getString("name"));
-                customer.setSurname(resultSet.getString("email"));
+                customer.setSurname(resultSet.getString("surname"));
                 customer.setBirth_date(LocalDate.parse(resultSet.getString("birthdate")));
             }
         } catch (Exception e) {
@@ -82,14 +82,15 @@ public class CustomerDao {
     static public List<Customer> findAllCustomers() {
 
         List<Customer> allCustomers = new ArrayList<>();
-        Customer customer = new Customer();
+
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(FIND_ALL_CUSTOMERS_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                Customer customer = new Customer();
                 customer.setId(resultSet.getInt("id"));
                 customer.setName(resultSet.getString("name"));
-                customer.setSurname(resultSet.getString("email"));
+                customer.setSurname(resultSet.getString("surname"));
                 customer.setBirth_date(LocalDate.parse(resultSet.getString("birthdate")));
                 allCustomers.add(customer);
             }
